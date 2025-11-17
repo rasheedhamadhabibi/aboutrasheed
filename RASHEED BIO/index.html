@@ -1,0 +1,371 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Rasheed Hamad Habibi — Mini Profile</title>
+  <meta name="description" content="Rasheed Hamad Habibi — a bright young student from Dubai. About, Achievements, Gallery & public profile." />
+  <style>
+    :root{
+      --gold:#C9A24A;
+      --deep-red:#9B1C1C;
+      --white:#ffffff;
+      --bg:#faf8f6;
+      --muted:#6b6b6b;
+      --card-radius:14px;
+      --max-width:1100px;
+      --shadow: 0 8px 20px rgba(12,12,12,0.08);
+      --accent-font:'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+    }
+    *{box-sizing:border-box}
+    body{
+      margin:0;
+      font-family:var(--accent-font);
+      background:linear-gradient(180deg,#fff 0%, #fbf9f7 100%);
+      color:#111;
+      -webkit-font-smoothing:antialiased;
+      -moz-osx-font-smoothing:grayscale;
+      line-height:1.45;
+    }
+
+    header{
+      background:linear-gradient(90deg,var(--white), #fff 60%);
+      border-bottom:4px solid rgba(0,0,0,0.02);
+      position:sticky;
+      top:0;
+      z-index:30;
+      backdrop-filter: blur(6px);
+      box-shadow: 0 3px 14px rgba(0,0,0,0.03);
+    }
+    .container{max-width:var(--max-width);margin:0 auto;padding:22px;}
+    .brand{
+      display:flex;gap:16px;align-items:center;
+    }
+    .logo{
+      width:56px;height:56px;border-radius:12px;background:linear-gradient(180deg,var(--deep-red), #c02a2a);
+      display:flex;align-items:center;justify-content:center;color:var(--white);font-weight:700;font-size:20px;box-shadow:var(--shadow);
+    }
+    nav{margin-left:auto;display:flex;gap:12px;align-items:center}
+    .nav-btn{
+      padding:8px 14px;border-radius:10px;border:0;background:transparent;color:#222;font-weight:600;cursor:pointer;
+    }
+    .nav-btn.active{background:linear-gradient(90deg,var(--gold), #d7b35f);color:#111}
+    main{max-width:var(--max-width);margin:26px auto;padding:18px;}
+
+    /* Hero */
+    .hero{
+      display:grid;grid-template-columns:1fr 420px;gap:28px;align-items:center;
+      background:linear-gradient(180deg, rgba(155,28,28,0.03), rgba(201,162,74,0.02));
+      padding:26px;border-radius:20px;box-shadow:var(--shadow);
+    }
+    .hero h1{margin:0;font-size:34px;color:var(--deep-red)}
+    .hero p{color:var(--muted);margin-top:10px}
+    .hero .photo{
+      border-radius:14px;overflow:hidden;border:6px solid rgba(201,162,74,0.09);
+      display:flex;align-items:center;justify-content:center;background:#fff;
+    }
+    .photo img{width:100%;height:100%;object-fit:cover;display:block}
+
+    /* Cards */
+    .card{background:var(--white);border-radius:12px;padding:18px;box-shadow:var(--shadow);margin-bottom:16px}
+    h2{margin:0 0 12px 0;color:var(--deep-red)}
+    .muted{color:var(--muted);font-size:14px}
+
+    /* Achievements list */
+    .achieve-list{display:grid;gap:12px}
+    .ach-item{display:flex;gap:12px;padding:12px;border-radius:10px;border:1px solid rgba(0,0,0,0.03);align-items:flex-start}
+    .ach-icon{width:56px;height:56px;border-radius:10px;background:linear-gradient(180deg,var(--gold), #d7b35f);display:flex;align-items:center;justify-content:center;color:#fff;font-weight:700}
+
+    /* Gallery */
+    .gallery-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:12px}
+    .gallery-grid img{width:100%;height:180px;object-fit:cover;border-radius:10px;border:4px solid #fff;box-shadow:0 6px 18px rgba(0,0,0,0.08)}
+
+    /* Profile card */
+    .profile-card{display:flex;gap:16px;align-items:center}
+    .avatar{width:120px;height:120px;border-radius:14px;overflow:hidden;border:6px solid var(--gold)}
+    .profile-info{flex:1}
+    .tag{display:inline-block;padding:6px 10px;border-radius:999px;background:rgba(155,28,28,0.08);color:var(--deep-red);font-weight:700;font-size:12px}
+
+    /* Contact block */
+    .contact-block p{margin:8px 0;color:#111}
+    .contact-block a{color:var(--deep-red);text-decoration:none;font-weight:700}
+
+    footer{padding:22px 0;color:var(--muted);text-align:center;margin-top:28px}
+
+    /* Responsive */
+    @media(max-width:880px){
+      .hero{grid-template-columns:1fr; padding:18px}
+      .brand{width:100%;gap:10px}
+      nav{display:flex;flex-wrap:wrap;justify-content:flex-end}
+      .avatar{width:96px;height:96px}
+      .gallery-grid img{height:140px}
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="container" style="display:flex;align-items:center;gap:18px">
+      <div class="brand">
+        <div class="logo">RH</div>
+        <div>
+          <div style="font-weight:800;color:var(--deep-red)">Rasheed Hamad Habibi</div>
+          <div style="font-size:13px;color:var(--muted)">A bright young student from Dubai</div>
+        </div>
+      </div>
+
+      <nav id="nav">
+        <button class="nav-btn active" data-target="about">About</button>
+        <button class="nav-btn" data-target="achievements">Achievements</button>
+        <button class="nav-btn" data-target="gallery">Gallery</button>
+        <button class="nav-btn" data-target="profile">Profile</button>
+        <button class="nav-btn" data-target="contact">Contact</button>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <!-- ABOUT -->
+    <section id="about" class="page">
+      <div class="hero">
+        <div>
+          <h1>Rasheed Hamad Habibi</h1>
+          <p class="muted">A warm, well-mannered and curious young student growing up in Dubai — driven by curiosity, learning, and family values. This page is a tasteful profile celebrating early achievements and character.</p>
+
+          <div style="margin-top:18px;display:flex;gap:12px">
+            <div class="card" style="flex:1">
+              <h2>Personality & Character</h2>
+              <p class="muted">Friendly, disciplined, and respectful — Rasheed is described by family and teachers as kind-hearted, eager to learn, and proud of his schoolwork. He enjoys reading, outdoor play, and learning new skills.</p>
+            </div>
+
+            <div class="card" style="width:220px">
+              <h2>Quick Facts</h2>
+              <p class="muted">Status: Young student<br>Interests: Reading, sports, school activities<br>Values: Respect, curiosity, family</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="photo card">
+          <!-- primary portrait: change src if you host the image elsewhere -->
+          <img src="/mnt/data/1747439677967.jpg" alt="Rasheed portrait" />
+        </div>
+      </div>
+
+      <div style="display:grid;grid-template-columns:1fr 340px;gap:18px;margin-top:18px">
+        <div class="card">
+          <h2>About</h2>
+          <p class="muted">This profile is designed to celebrate Rasheed's early life: achievements at school, character, and glimpses of family life that shape his growth. Content uses publicly shared photos and neutral descriptions — no unverified claims are made. Use this page as a tasteful introduction for friends, family, and community.</p>
+
+          <h3 style="margin-top:12px;color:var(--deep-red)">How this page can be used</h3>
+          <ul style="color:var(--muted);margin-top:8px">
+            <li>Share a gentle, public-facing profile</li>
+            <li>Present achievements (school certificates, awards)</li>
+            <li>Showcase a photo gallery for family/friends</li>
+          </ul>
+        </div>
+
+        <aside class="card">
+          <h2>Contact</h2>
+          <div class="contact-block">
+            <p><strong>Facebook:</strong> Rasheed Hamad Habibi</p>
+
+            <p><strong>TikTok:</strong>
+              <a href="https://www.tiktok.com/@rasheedhamadhabibi?is_from_webapp=1&sender_device=pc" target="_blank">@rasheedhamadhabibi</a>
+            </p>
+
+            <p><strong>Email:</strong><br>
+              <a href="mailto:rasheedhamadhabibi@outlook.com">rasheedhamadhabibi@outlook.com</a><br>
+              <a href="mailto:rasheedhamadhabibi@gmail.com">rasheedhamadhabibi@gmail.com</a>
+            </p>
+
+            <p><strong>Royal Family Management Mail:</strong><br>
+              <a href="mailto:royalfamilyprivatecontact@gmail.com">royalfamilyprivatecontact@gmail.com</a><br>
+              <a href="mailto:royalfamilyprivatecouncil@gmail.com">royalfamilyprivatecouncil@gmail.com</a>
+            </p>
+          </div>
+        </aside>
+      </div>
+    </section>
+
+    <!-- ACHIEVEMENTS -->
+    <section id="achievements" class="page" style="display:none">
+      <div class="card">
+        <h2>Achievements</h2>
+        <p class="muted">Early accomplishments and recognitions at school — a celebration of effort and discipline.</p>
+
+        <div class="achieve-list" style="margin-top:12px">
+          <div class="ach-item">
+            <div class="ach-icon">A</div>
+            <div>
+              <strong>School Certificate</strong>
+              <div class="muted">Recognized for strong academic performance and participation in school events. (See photo of certificate in Gallery.)</div>
+            </div>
+          </div>
+
+          <div class="ach-item">
+            <div class="ach-icon">Q</div>
+            <div>
+              <strong>Quran / Religious Studies Participation</strong>
+              <div class="muted">Participated in recitations and community learning programs — valued by family and teachers.</div>
+            </div>
+          </div>
+
+          <div class="ach-item">
+            <div class="ach-icon">C</div>
+            <div>
+              <strong>Commendations</strong>
+              <div class="muted">Teachers note punctuality, good conduct and kindness toward classmates.</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="card" style="margin-top:12px">
+        <h2>Notes on Achievements</h2>
+        <p class="muted">If you want specific award names, dates or official documents displayed here, provide them and I will format them elegantly with verified references and captions.</p>
+      </div>
+    </section>
+
+    <!-- GALLERY -->
+    <section id="gallery" class="page" style="display:none">
+      <div class="card">
+        <h2>Gallery</h2>
+        <p class="muted">Selected photos (family-provided). Click to enlarge.</p>
+
+        <div class="gallery-grid" style="margin-top:12px">
+          <img src="/mnt/data/1747170572447.jpg" alt="Rasheed holding certificate" onclick="openLightbox(this.src)" />
+          <img src="/mnt/data/1747439677967.jpg" alt="Rasheed school portrait" onclick="openLightbox(this.src)" />
+          <img src="/mnt/data/1749687351237.jpg" alt="Father portrait" onclick="openLightbox(this.src)" />
+          <img src="/mnt/data/1750903426857.jpg" alt="Young smiling child" onclick="openLightbox(this.src)" />
+        </div>
+      </div>
+
+      <!-- simple lightbox -->
+      <div id="lightbox" style="display:none;position:fixed;inset:0;background:rgba(3,3,3,0.7);align-items:center;justify-content:center;z-index:80">
+        <img id="lightbox-img" src="" style="max-width:92%;max-height:86%;border-radius:12px;box-shadow:0 18px 48px rgba(0,0,0,0.6)" />
+      </div>
+    </section>
+
+    <!-- PROFILE -->
+    <section id="profile" class="page" style="display:none">
+      <div class="card profile-card">
+        <div class="avatar">
+          <img src="/mnt/data/1747439677967.jpg" alt="Rasheed avatar" style="width:100%;height:100%;object-fit:cover" />
+        </div>
+        <div class="profile-info">
+          <div style="display:flex;align-items:center;gap:12px">
+            <div>
+              <div style="font-size:18px;font-weight:800;color:var(--deep-red)">Rasheed Hamad Habibi</div>
+              <div style="font-size:13px;color:var(--muted)">Young student — focused on learning and community</div>
+            </div>
+            <div style="margin-left:auto">
+              <span class="tag">Public Profile</span>
+            </div>
+          </div>
+
+          <p class="muted" style="margin-top:12px">This compact public profile is shareable and ideal for a simple "about" card on social pages or a family site. It intentionally avoids unverified claims about family relationships and focuses on character, achievements, and contact options.</p>
+
+          <div style="margin-top:12px;display:flex;gap:10px;align-items:center">
+            <a class="nav-btn" href="https://github.com/" target="_blank" style="background:linear-gradient(90deg,var(--deep-red), #c02a2a);color:#fff">View on Git</a>
+            <button class="nav-btn" onclick="copyProfileLink()" style="background:linear-gradient(90deg,var(--gold), #d7b35f)">Copy profile link</button>
+            <button class="nav-btn" onclick="downloadVCard()">Download vCard</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="card" style="margin-top:14px">
+        <h2>Shareable Info</h2>
+        <p class="muted">Public profile summary you can paste anywhere:</p>
+        <pre style="background:#fff;border-radius:10px;padding:12px;border:1px solid rgba(0,0,0,0.04)"><strong>Rasheed Hamad Habibi</strong>
+Young student | Interests: reading, learning, sports
+Contact: rasheedhamadhabibi@outlook.com</pre>
+      </div>
+    </section>
+
+    <!-- CONTACT (anchor also shown on About side) -->
+    <section id="contact" class="page" style="display:none;margin-top:12px">
+      <div class="card">
+        <h2>Contact</h2>
+        <div class="contact-block">
+          <p><strong>Facebook:</strong> Rasheed Hamad Habibi</p>
+
+          <p><strong>TikTok:</strong>
+            <a href="https://www.tiktok.com/@rasheedhamadhabibi?is_from_webapp=1&sender_device=pc" target="_blank">@rasheedhamadhabibi</a>
+          </p>
+
+          <p><strong>Email:</strong><br>
+            <a href="mailto:rasheedhamadhabibi@outlook.com">rasheedhamadhabibi@outlook.com</a><br>
+            <a href="mailto:rasheedhamadhabibi@gmail.com">rasheedhamadhabibi@gmail.com</a>
+          </p>
+
+          <p><strong>Royal Family Management Mail:</strong><br>
+            <a href="mailto:royalfamilyprivatecontact@gmail.com">royalfamilyprivatecontact@gmail.com</a><br>
+            <a href="mailto:royalfamilyprivatecouncil@gmail.com">royalfamilyprivatecouncil@gmail.com</a>
+          </p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container">
+      <div style="max-width:var(--max-width);margin:0 auto">
+        <div style="font-weight:700;color:var(--deep-red)">Rasheed Hamad Habibi</div>
+        <div class="muted" style="font-size:13px;margin-top:6px">Made with care • Design: Royal-inspired (gold / red / white)</div>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // Navigation handling
+    const navButtons = document.querySelectorAll('.nav-btn[data-target]');
+    navButtons.forEach(btn=>{
+      btn.addEventListener('click',()=> {
+        document.querySelectorAll('.page').forEach(p=>p.style.display='none');
+        document.getElementById(btn.dataset.target).style.display='block';
+        navButtons.forEach(b=>b.classList.remove('active'));
+        btn.classList.add('active');
+        window.scrollTo({top:0,behavior:'smooth'});
+      });
+    });
+
+    // Lightbox
+    function openLightbox(src){
+      const lb = document.getElementById('lightbox');
+      const img = document.getElementById('lightbox-img');
+      img.src = src;
+      lb.style.display = 'flex';
+      lb.addEventListener('click', ()=> { lb.style.display='none'; img.src=''; }, {once:true});
+    }
+
+    // Copy profile link (placeholder)
+    function copyProfileLink(){
+      const text = window.location.href.split('#')[0] + '#profile';
+      navigator.clipboard?.writeText(text).then(()=> alert('Profile link copied to clipboard!'), ()=> alert('Copy failed — please copy manually.'));
+    }
+
+    // vCard download generator
+    function downloadVCard(){
+      const vcard =
+`BEGIN:VCARD
+VERSION:3.0
+FN:Rasheed Hamad Habibi
+EMAIL;TYPE=INTERNET:rasheedhamadhabibi@outlook.com
+TEL;TYPE=VOICE:
+NOTE:Public profile for family/community use.
+END:VCARD`;
+      const blob = new Blob([vcard], {type:'text/vcard'});
+      const url = URL.createObjectURL(blob);
+      const a = document.createElement('a');
+      a.href = url; a.download = 'rasheed_hamad_habibi.vcf';
+      document.body.appendChild(a);
+      a.click();
+      a.remove();
+      URL.revokeObjectURL(url);
+    }
+
+    // Initial: show about
+    document.querySelectorAll('.page').forEach(p=>p.style.display='none');
+    document.getElementById('about').style.display='block';
+  </script>
+</body>
+</html>
